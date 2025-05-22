@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Products - Renewify</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html">
+          <span class="logo-text">Renewify</span>
+        </a>
+      </div>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="browse.html" class="nav-link active">Browse</a></li>
+          <li class="nav-item"><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </header>
+  <section class="page-header">
+    <div class="container">
+      <h1>Browse Products</h1>
+      <div class="breadcrumbs">
+        <a href="index.html">Home</a> / <span>Browse Products</span>
+      </div>
+    </div>
+  </section>
+  <section class="product-search">
+    <div class="container">
+      <div class="search-container">
+        <div class="search-box">
+          <input type="text" placeholder="Search products..." id="product-search-input">
+          <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="filter-dropdown">
+          <button class="filter-dropdown-btn">Sort By <i class="fas fa-chevron-down"></i></button>
+          <div class="filter-dropdown-content">
+            <a href="#" data-sort="newest">Newest First</a>
+            <a href="#" data-sort="popular">Most Popular</a>
+            <a href="#" data-sort="price-low">Price: Low to High</a>
+            <a href="#" data-sort="price-high">Price: High to Low</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="product-listing">
+  <div class="container">
+    <div class="product-grid-container">
+      <div class="product-sidebar">
+        <div class="sidebar-widget">
+          <h3>Categories</h3>
+          <ul class="category-list">
+            <li><a href="#" class="active" data-category="all">All Products</a></li>
+            <li><a href="#" data-category="home-decor">Home Decor</a></li>
+            <li><a href="#" data-category="fashion">Fashion & Accessories</a></li>
+            <li><a href="#" data-category="furniture">Furniture</a></li>
+            <li><a href="#" data-category="art">Art & Collectibles</a></li>
+            <li><a href="#" data-category="jewelry">Jewelry</a></li>
+            <li><a href="#" data-category="garden">Garden & Outdoor</a></li>
+            <li><a href="#" data-category="lighting">Lighting</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-widget">
+          <h3>Price Range</h3>
+          <div class="price-range">
+            <input type="range" min="0" max="500" value="500" class="price-slider" id="price-range">
+            <div class="price-inputs">
+              <span>$0</span>
+              <span id="price-value">$500</span>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-widget">
+          <h3>Materials Used</h3>
+          <div class="checkbox-list">
+            <label class="checkbox-item">
+              <input type="checkbox" value="glass"> Glass
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="wood"> Wood
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="plastic"> Plastic
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="fabric"> Fabric
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="metal"> Metal
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" value="paper"> Paper
+            </label>
+          </div>
+        </div>
+        <button class="apply-filters-btn">Apply Filters</button>
+        <button class="reset-filters-btn">Reset Filters</button>
+      </div>
+      <div class="product-grid">
+        <!-- Product Cards -->
+        <div class="product-card" data-category="home-decor">
+          <div class="product-image">
+            <img src="assets/glassvase.jpg" alt="Recycled Glass Vase">
+            <div class="product-tags">
+              <span class="product-tag">Featured</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Recycled Glass Vase</h3>
+            <p class="product-creator">By EcoArtist</p>
+            <div class="product-meta">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>(4.5)</span>
+              </div>
+              <div class="product-price">$45.00</div>
+            </div>
+            <p class="product-description">Beautiful vase made from recycled glass bottles.</p>
+            <div class="product-actions">
+              <button class="view-details-btn">View Details</button>
+              <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card" data-category="fashion">
+          <div class="product-image">
+            <img src="assets/denimbag.jpg" alt="Upcycled Denim Bag">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Upcycled Denim Bag</h3>
+            <p class="product-creator">By DenimDreamer</p>
+            <div class="product-meta">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(4.0)</span>
+              </div>
+              <div class="product-price">$35.00</div>
+            </div>
+            <p class="product-description">Stylish bag created from old denim jeans.</p>
+            <div class="product-actions">
+              <button class="view-details-btn">View Details</button>
+              <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card" data-category="furniture">
+          <div class="product-image">
+            <img src="assets/coffeetab.jpg" alt="Pallet Coffee Table">
+            <div class="product-tags">
+              <span class="product-tag">New</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Pallet Coffee Table</h3>
+            <p class="product-creator">By WoodWorks</p>
+            <div class="product-meta">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>(5.0)</span>
+              </div>
+              <div class="product-price">$120.00</div>
+            </div>
+            <p class="product-description">Rustic coffee table made from reclaimed wooden pallets.</p>
+            <div class="product-actions">
+              <button class="view-details-btn">View Details</button>
+              <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card" data-category="art">
+          <div class="product-image">
+            <img src="assets/bottlecap.jpg" alt="Bottle Cap Mural">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Bottle Cap Mural</h3>
+            <p class="product-creator">By CapArtist</p>
+            <div class="product-meta">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(4.0)</span>
+              </div>
+              <div class="product-price">$85.00</div>
+            </div>
+            <p class="product-description">Colorful wall art created entirely from collected bottle caps.</p>
+            <div class="product-actions">
+              <button class="view-details-btn">View Details</button>
+              <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card" data-category="home-decor">
+          <div class="product-image">
+            <img src="assets/tincan.jpg" alt="Tin Can Lanterns">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Tin Can Lanterns</h3>
+            <p class="product-creator">By LightMaker</p>
+            <div class="product-meta">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+                <span>(3.5)</span>
+              </div>
+              <div class="product-price">$25.00</div>
+            </div>
+            <p class="product-description">Decorative lanterns made from repurposed tin cans.</p>
+            <div class="product-actions">
+              <button class="view-details-btn">View Details</button>
+              <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card" data-category="jewelry">
+          <div class="product-image">
+            <img src="assets/plasticbot.jpg" alt="Plastic Bottle Jewelry">
+            <div class="product-tags">
+              <span class="product-tag sale">Sale</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Plastic Bottle Jewelry</h3>
+            <p class="product-creator">By EcoJewels</p>
+            <div class="product-meta">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(4.0)</span>
+              </div>
+              <div class="product-price"><span class="original-price">$30.00</span> $22.00</div>
+            </div>
+            <p class="product-description">Stunning jewelry crafted from plastic bottles.</p>
+            <div class="product-actions">
+              <button class="view-details-btn">View Details</button>
+              <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card" data-category="garden">
+          <div class="product-image">
+            <img src="assets/tire-planter-ideas.jpg" alt="Tire Planter">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Tire Planter</h3>
+            <p class="product-creator">By GreenThumb</p>
+            <div class="product-meta">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>(4.5)</span>
+              </div>
+              <div class="product-price">$40.00</div>
+            </div>
+            <p class="product-description">Colorful garden planters made from old tires.</p>
+            <div class="product-actions">
+              <button class="view-details-btn">View Details</button>
+              <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card" data-category="furniture">
+          <div class="product-image">
+            <img src="assets/wine.jpg" alt="Wine Barrel Chair">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Wine Barrel Chair</h3>
+            <p class="product-creator">By BarrelCraft</p>
+            <div class="product-meta">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(4.0)</span>
+              </div>
+              <div class="product-price">$150.00</div>
+            </div>
+            <p class="product-description">Comfortable chair crafted from reclaimed wine barrels.</p>
+            <div class="product-actions">
+              <button class="view-details-btn">View Details</button>
+              <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card" data-category="lighting">
+          <div class="product-image">
+            <img src="assets/bottlelamp.jpg" alt="Bottle Lamp">
+            <div class="product-tags">
+              <span class="product-tag">New</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Bottle Lamp</h3>
+            <p class="product-creator">By GlassWorks</p>
+            <div class="product-meta">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>(5.0)</span>
+              </div>
+              <div class="product-price">$65.00</div>
+            </div>
+            <p class="product-description">Elegant lamp made from upcycled wine bottles with LED lights.</p>
+            <div class="product-actions">
+              <button class="view-details-btn">View Details</button>
+              <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Pagination -->
+    <div class="pagination">
+      <a href="#" class="active">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <a href="#" class="next">Next <i class="fas fa-chevron-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Products Section -->
+<section class="featured-collections">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Featured Collections</h2>
+      <div class="section-divider"></div>
+    </div>
+    
+    <div class="collections-grid">
+      <div class="collection-card">
+        <div class="collection-image">
+          <img src="assets/homeessentials.webp" alt="Home Essentials">
+          <div class="collection-overlay">
+            <h3>Home Essentials</h3>
+            <a href="#" class="collection-btn">Explore</a>
+          </div>
+        </div>
+      </div>
+      <div class="collection-card">
+        <div class="collection-image">
+          <img src="assets/susfas.webp" alt="Sustainable Fashion">
+          <div class="collection-overlay">
+            <h3>Sustainable Fashion</h3>
+            <a href="#" class="collection-btn">Explore</a>
+          </div>
+        </div>
+      </div>
+      <div class="collection-card">
+        <div class="collection-image">
+          <img src="assets/ecofriendgif.webp" alt="Eco-Friendly Gifts">
+          <div class="collection-overlay">
+            <h3>Eco-Friendly Gifts</h3>
+            <a href="#" class="collection-btn">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trending Products -->
+<section class="trending-products">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Trending Now</h2>
+      <div class="section-divider"></div>
+      <p class="section-description">Our most popular products this month</p>
+    </div>
+    
+    <div class="trending-slider">
+      <div class="trending-controls">
+        <button class="trending-btn prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="trending-btn next"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      
+      <div class="trending-products-grid">
+        <div class="product-card" data-category="lighting">
+          <div class="product-image">
+            <img src="assets/pendant.webp" alt="Recycled Pendant Light">
+            <div class="product-tags">
+              <span class="product-tag">Trending</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Recycled Pendant Light</h3>
+            <p class="product-creator">By LightCraft</p>
+            <div class="product-meta">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>(5.0)</span>
+              </div>
+              <div class="product-price">$85.00</div>
+            </div>
+            <div class="product-actions">
+              <button class="view-details-btn">View Details</button>
+              <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card" data-category="furniture">
+          <div class="product-image">
+            <img src="assets/tireottoman.webp" alt="Tire Ottoman">
+            <div class="product-tags">
+              <span class="product-tag">Trending</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Tire Ottoman</h3>
+            <p class="product-creator">By EcoFurniture</p>
+            <div class="product-meta">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>(4.5)</span>
+              </div>
+              <div class="product-price">$65.00</div>
+            </div>
+            <div class="product-actions">
+              <button class="view-details-btn">View Details</button>
+              <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card" data-category="home-decor">
+          <div class="product-image">
+            <img src="assets/recordbowl.webp" alt="Record Bowl">
+            <div class="product-tags">
+              <span class="product-tag">Trending</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Record Bowl</h3>
+            <p class="product-creator">By VinylArt</p>
+            <div class="product-meta">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(4.0)</span>
+              </div>
+              <div class="product-price">$25.00</div>
+            </div>
+            <div class="product-actions">
+              <button class="view-details-btn">View Details</button>
+              <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="product-card" data-category="fashion">
+          <div class="product-image">
+            <img src="assets/fabric.webp" alt="Recycled Fabric Tote">
+            <div class="product-tags">
+              <span class="product-tag">Trending</span>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Recycled Fabric Tote</h3>
+            <p class="product-creator">By EcoFashion</p>
+            <div class="product-meta">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>(5.0)</span>
+              </div>
+              <div class="product-price">$30.00</div>
+            </div>
+            <div class="product-actions">
+              <button class="view-details-btn">View Details</button>
+              <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <section class="featured-creators">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Creators</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="creators-slider">
+        <div class="creator-card">
+          <div class="creator-image">
+            <img src="assets/ecoartist.webp" alt="EcoArtist">
+          </div>
+          <h3 class="creator-name">EcoArtist</h3>
+          <p class="creator-specialty">Glass Upcycling</p>
+          <a href="#" class="view-profile-btn">View Profile</a>
+        </div>
+        <div class="creator-card">
+          <div class="creator-image">
+            <img src="assets/woodworks.webp" alt="WoodWorks">
+          </div>
+          <h3 class="creator-name">WoodWorks</h3>
+          <p class="creator-specialty">Furniture Design</p>
+          <a href="#" class="view-profile-btn">View Profile</a>
+        </div>
+        <div class="creator-card">
+          <div class="creator-image">
+            <img src="assets/denimdream.webp" alt="DenimDreamer">
+          </div>
+          <h3 class="creator-name">DenimDreamer</h3>
+          <p class="creator-specialty">Textile Upcycling</p>
+          <a href="#" class="view-profile-btn">View Profile</a>
+        </div>
+        <div class="creator-card">
+          <div class="creator-image">
+            <img src="assets/greenthumb.webp" alt="GreenThumb">
+          </div>
+          <h3 class="creator-name">GreenThumb</h3>
+          <p class="creator-specialty">Garden Creations</p>
+          <a href="#" class="view-profile-btn">View Profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to Start Creating?</h2>
+        <p>Join our community of creators and start selling your upcycled products today.</p>
+        <div class="cta-buttons">
+          <a href="dashboard.html" class="cta-button primary">Become a Creator</a>
+          <a href="contact.html" class="cta-button secondary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <div class="footer-logo">
+            <span class="logo-text">Renewify</span>
+          </div>
+          <p class="footer-description">Transforming waste materials into beautiful, functional products through creativity and innovation.</p>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="browse.html">Browse Products</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Categories</h3>
+          <ul class="footer-links">
+            <li><a href="browse.html?category=home-decor">Home Decor</a></li>
+            <li><a href="browse.html?category=fashion">Fashion</a></li>
+            <li><a href="browse.html?category=furniture">Furniture</a></li>
+            <li><a href="browse.html?category=art">Art</a></li>
+            <li><a href="browse.html?category=jewelry">Jewelry</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3 class="footer-title">Newsletter</h3>
+          <p>Subscribe to our newsletter for the latest updates and eco-friendly tips.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 Renewify. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

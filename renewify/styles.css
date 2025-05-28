@@ -3698,6 +3698,12 @@ img {
   border-top-color: var(--primary-color);
   animation: spin 1s ease-in-out infinite;
 }
+/* Modal styles */
+.modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.4); justify-content: center; align-items: center; }
+.modal .modal-content { background: #fff; padding: 2rem; border-radius: 8px; width: 350px; position: relative; }
+.modal .close-modal { position: absolute; right: 1rem; top: 1rem; font-size: 1.5rem; cursor: pointer; }
+.modal:not(.hidden) { display: flex; }
+.hidden { display: none !important; }
 
 @keyframes spin {
   to {

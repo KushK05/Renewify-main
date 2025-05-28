@@ -313,7 +313,7 @@
       <section id="products-section" class="dashboard-section">
         <div class="section-header">
           <h2>My Products</h2>
-          <button class="add-product-btn" id="add-new-product"><i class="fas fa-plus"></i> Add New Product</button>
+          <button class="add-product-btn" id="add-new-product" ><i class="fas fa-plus"></i href="productForm.html"> Add New Product</button>
         </div>
 
         <div class="product-filters">
@@ -1132,6 +1132,46 @@
         </div>
       </section>
     </main>
+    <!-- Product Form Modal -->
+<div id="product-form-modal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close-modal" id="close-product-modal">&times;</span>
+    <h2>Add New Product</h2>
+    <form id="add-product-form">
+      <div class="form-group">
+        <label for="new-product-title">Product Name</label>
+        <input type="text" id="new-product-title" required>
+      </div>
+      <div class="form-group">
+        <label for="new-product-price">Price ($)</label>
+        <input type="number" id="new-product-price" min="0" step="0.01" required>
+      </div>
+      <div class="form-group">
+        <label for="new-product-category">Category</label>
+        <select id="new-product-category" required>
+          <option value="home-decor">Home Decor</option>
+          <option value="fashion">Fashion</option>
+          <option value="furniture">Furniture</option>
+          <option value="art">Art</option>
+          <option value="jewelry">Jewelry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="new-product-status">Status</label>
+        <select id="new-product-status" required>
+          <option value="active">Active</option>
+          <option value="draft">Draft</option>
+          <option value="sold-out">Sold Out</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="new-product-image">Image URL</label>
+        <input type="text" id="new-product-image" placeholder="e.g. /placeholder.svg?height=200&width=200">
+      </div>
+      <button type="submit" class="action-btn">Add Product</button>
+    </form>
+  </div>
+</div>
   </div>
 
   <!-- Footer -->
@@ -1441,11 +1481,58 @@
 
     function setupButtonActions() {
       // Add Product button
-      document.getElementById('add-product-btn').addEventListener('click', function() {
-        showSection('products');
-        // Show add product modal or form
-        alert('Add Product functionality would open a form here');
-      });
+      // Add Product button
+  document.getElementById('add-product-btn').addEventListener('click', function() {
+    showSection('products');
+    document.getElementById('product-form-modal').classList.remove('hidden');
+  });
+
+  // Close modal
+  document.getElementById('close-product-modal').addEventListener('click', function() {
+    document.getElementById('product-form-modal').classList.add('hidden');
+  });
+
+  // Add Product Form Submission
+  document.getElementById('add-product-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Get form values
+    const title = document.getElementById('new-product-title').value;
+    const price = document.getElementById('new-product-price').value;
+    const category = document.getElementById('new-product-category').value;
+    const status = document.getElementById('new-product-status').value;
+    const image = document.getElementById('new-product-image').value || '/placeholder.svg?height=200&width=200';
+
+    // Create product card HTML
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+      <div class="product-image">
+        <img src="${image}" alt="${title}">
+        <div class="product-actions">
+          <button class="product-action-btn edit-product"><i class="fas fa-edit"></i></button>
+          <button class="product-action-btn delete-product"><i class="fas fa-trash"></i></button>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-title">${title}</h3>
+        <div class="product-meta">
+          <div class="product-price">$${parseFloat(price).toFixed(2)}</div>
+          <div class="product-status ${status}">${status.charAt(0).toUpperCase() + status.slice(1)}</div>
+        </div>
+        <div class="product-stats">
+          <span><i class="fas fa-eye"></i> 0</span>
+          <span><i class="fas fa-shopping-cart"></i> 0</span>
+        </div>
+      </div>
+    `;
+
+    // Add to product grid
+    document.querySelector('.dashboard-products').prepend(card);
+
+    // Hide modal and reset form
+    document.getElementById('product-form-modal').classList.add('hidden');
+    this.reset();
+    });
       
       // Notifications button
       document.getElementById('notifications-btn').addEventListener('click', function() {

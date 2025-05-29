@@ -3705,6 +3705,81 @@ img {
 .modal:not(.hidden) { display: flex; }
 .hidden { display: none !important; }
 
+/* Only apply these styles to the login page */
+.login-page {
+  background: linear-gradient(120deg, #a8e063 0%, #56ab2f 100%);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-page .login-container {
+  background: #fff;
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.15);
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+}
+
+.login-page .login-container h2 {
+  margin-bottom: 1.5rem;
+  color: #388e3c;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.login-page #loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.login-page #loginForm input[type="text"],
+.login-page #loginForm input[type="password"] {
+  color: #222;
+  padding: 0.75rem 1rem;
+  border: 1px solid #c8e6c9;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f9fff9;
+  transition: border 0.2s;
+}
+
+.login-page #loginForm input:focus {
+  border: 1.5px solid #388e3c;
+  outline: none;
+}
+
+.login-page #loginForm button {
+  padding: 0.75rem 1rem;
+  background: linear-gradient(90deg, #56ab2f 0%, #a8e063 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+
+.login-page #loginForm button:hover {
+  background: linear-gradient(90deg, #388e3c 0%, #a8e063 100%);
+}
+
+.login-page #loginError {
+  margin-top: 0.5rem;
+  font-size: 0.97rem;
+  color: #d32f2f;
+  display: none;
+  min-height: 1.2em;
+}
+
 @keyframes spin {
   to {
     transform: rotate(360deg);

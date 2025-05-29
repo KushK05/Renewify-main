@@ -649,6 +649,73 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Add dynamic products from localStorage to the product grid
+    function renderLocalProducts() {
+      const productGrid = document.querySelector('.product-grid');
+      if (!productGrid) return;
+      // Remove previously injected localStorage products (if any)
+      const injected = productGrid.querySelectorAll('.product-card[data-local="true"]');
+      injected.forEach(card => card.remove());
+
+      let products = [];
+      try {
+        products = JSON.parse(localStorage.getItem('browseProducts')) || [];
+      } catch (e) {
+        products = [];
+      }
+      products.forEach(product => {
+        // Create product card element
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.setAttribute('data-category', product.category);
+        card.setAttribute('data-local', 'true');
+
+        card.innerHTML = `
+          <div class="product-image">
+            <img src="${product.image}" alt="${product.title}">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">${product.title}</h3>
+            <p class="product-creator">By You</p>
+            <div class="product-meta">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>(0)</span>
+              </div>
+              <div class="product-price">$${parseFloat(product.price).toFixed(2)}</div>
+            </div>
+            <p class="product-description"></p>
+            <div class="product-actions">
+              <button class="view-details-btn">View Details</button>
+              <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+          </div>
+        `;
+        // Add to top of grid
+        productGrid.prepend(card);
+      });
+    }
+
+    // Initial render
+    document.addEventListener('DOMContentLoaded', renderLocalProducts);
+
+    // Live reload compatibility: re-render on storage change (other tabs/windows or live reload)
+    window.addEventListener('storage', function(e) {
+      if (e.key === 'browseProducts') {
+        renderLocalProducts();
+      }
+    });
+
+    // Optional: re-render on hot reload (if live server triggers DOMContentLoaded again)
+    if (typeof module !== 'undefined' && module.hot) {
+      module.hot.accept(renderLocalProducts);
+    }
+  </script>
 </body>
 </html>
 
